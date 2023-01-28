@@ -1,0 +1,16 @@
+{
+    "trivia": [
+      {
+        "id": 1,
+        "question": "What House did Harry Potter belong to?",
+        "answers": [
+          "Huffle Puff",
+          "Slytherin",
+          "Griffindor",
+          "Ravenclaw"
+        ],
+        "correctIndex": 2
+      }
+
+    ]
+}
