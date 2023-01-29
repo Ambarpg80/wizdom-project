@@ -3,10 +3,13 @@ import AdditionalInfo from "./AdditionalInfo";
 import TriviaForm from "./TriviaForm"
 import TriviaQuestions from "./TriviaQuestions"
 function Homepage() {
-   console.log('Something Goes Here')
+   
   
     return (
         <div>
+            <header className="App-header">
+            Hello from the NavBar
+            </header>
             <TriviaQuestions />
             <TriviaForm />
             <AdditionalInfo />
