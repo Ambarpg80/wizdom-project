@@ -1,7 +1,8 @@
 import React from "react";
-import AdditionalInfo from "./AdditionalInfo";
-import TriviaForm from "./TriviaForm"
-import TriviaQuestions from "./TriviaQuestions"
+import trivia from "../db.json";
+import TriviaList from "./TriviaList"
+
+
 function Homepage() {
    
   
@@ -10,9 +11,7 @@ function Homepage() {
             <header className="App-header">
             Hello from the NavBar
             </header>
-            <TriviaQuestions />
-            <TriviaForm />
-            <AdditionalInfo />
+            <TriviaList />
         </div>
     )
 }
