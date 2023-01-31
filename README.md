@@ -4,5 +4,9 @@ I created the app using Reacts create-react-app command. Once I had my github co
 
 src/photos/Phase 2 Project Diagram.png
 
-With my diagram in place, the first thing to work on was the database. I created a db.json file along with the basic component files. I installed json-server to act as a mock server and started thinking of trivia questions. I decided to keep things simple and create a question for each book (7 questions).
+With my diagram in place, the first thing to work on was the database and basic component files. I installed json-server to act as a mock server and react-router-dom. The first focus is getting the app to has functionality. 
 
+    1. Create a db.json file along with the basic trivia questions.I decided to keep things simple and create a question for each book (7 questions).
+    2. Create the fetch request to add all questions and answers to the page. 
+    3. Create basic form inputs and create a succesful POST request that adds a new question to the db and page.
+    4. Add client-side-Routing routes and Navlinks. 
