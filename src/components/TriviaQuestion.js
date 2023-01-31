@@ -1,12 +1,20 @@
 import React from "react";
 
-function TriviaQuestions() {
-   
+function TriviaQuestion({prompt}) {
+    console.log(prompt)
+    const {id, question, hint, answers} = prompt
   
     return (
-        <div>
-            Would you like to play some Trivia?
+        <div className="App">
+           <ul>{id}. {question}
+            {answers.map(answer => 
+              <li key={answer} style={{listStyleType: "none" , margin: "3px"}}>
+                <button > {answer} </button>
+              </li>
+            )}
+           </ul> 
+           <button value={hint}> ✨ Hint 📚 ✨ </button>
         </div>
     )
 }
-export default TriviaQuestions
+export default TriviaQuestion
