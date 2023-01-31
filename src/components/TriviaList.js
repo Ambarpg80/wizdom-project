@@ -1,18 +1,25 @@
-import React  from "react";
+import React  , {useEffect, useState} from "react";
 import TriviaQuestion from "./TriviaQuestion"
 
-function TriviaList({questions}) {
-    // const [questions, SetQuestions] = useState([])
+function TriviaList() {
+    
+    const [triviaData, setTriviaData] = useState([])
   
-    // useEffect(()=>{
-    //     fetch('http://localhost:3000/trivia')
-    //     .then(res => res.json())
-    //     .then(trivia => SetQuestions(trivia))
-    // },[])
-  
+    useEffect(()=>{
+        fetch('http://localhost:3000/trivia')
+        .then(res => res.json())
+        .then(data => setTriviaData(data))
+    },[])
+
+    function deleteQuestion(id){
+     const filteredQuestionList = triviaData.filter(trivia => trivia.id !== id)
+     setTriviaData(filteredQuestionList)
+    }
+
+  console.log(triviaData)
     return (
         <div >
-          {questions.map(prompt => <div key={prompt.id} ><TriviaQuestion prompt={prompt} /> </div> )}
+          {triviaData.map(trivia => <TriviaQuestion key={trivia.id} trivia={trivia} onDelete={deleteQuestion} />  )}
          </div>
     )
 }

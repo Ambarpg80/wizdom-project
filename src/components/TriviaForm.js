@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function TriviaForm({questions, setQuestions}) {
+function TriviaForm({questions, onAddQuestion}) {
    const [formData, setFormData] = useState({
     question: "",
     answer1: "",
@@ -9,14 +9,19 @@ function TriviaForm({questions, setQuestions}) {
     answer4: "",
     correctIndex: 0
    })
+  const [categoryAnswer, setCategoryAnswer] =useState(formData.answer1)
 
-   function handleChange(e){
+   function handleCategoryChange(e){
+    setCategoryAnswer(e.target.value)
+   }
+ 
+   function handleInputChange(e){
     setFormData(e.target.value)
    }
 
    function handleSubmit(e){
     e.preventDefault();
-    setFormData(e.target.value)
+    //setFormData(e.target.value)
     fetch("http://localhost:3000/trivia",{
         method: "POST",
         headers:{
@@ -34,7 +39,7 @@ function TriviaForm({questions, setQuestions}) {
         }) 
     })
     .then(res => res.json())
-    .then(()=>setQuestions([...questions, formData]))
+    .then(()=>onAddQuestion(questions.formData))
    
    }
 
@@ -44,28 +49,28 @@ function TriviaForm({questions, setQuestions}) {
         <div className="container"> Help us add to the Fun! </div>
         <div className="container">
         <form onClick={handleSubmit}>
-            <input placeholder="New Question" value={formData.question} onChange={handleChange}></input>
+            <input placeholder="New Question" value={formData.question} onChange={handleInputChange}></input>
                 <label>Question</label>
 
-            <input placeholder="Answer" value={formData.answer1} onChange={handleChange}></input>
+            <input placeholder="Answer" value={formData.answer1} onChange={handleInputChange}></input>
                 <label>Answer 1</label>
 
-            <input placeholder="Answer" value={formData.answer2} onChange={handleChange}></input>
+            <input placeholder="Answer" value={formData.answer2} onChange={handleInputChange}></input>
                 <label>Answer 2</label>
 
-            <input placeholder="Answer" value={formData.answer3} onChange={handleChange}></input>
+            <input placeholder="Answer" value={formData.answer3} onChange={handleInputChange}></input>
                 <label>Answer 3</label>
 
-            <input placeholder="Answer" value={formData.answer4} onChange={handleChange}></input>
+            <input placeholder="Answer" value={formData.answer4} onChange={handleInputChange}></input>
                 <label>Answer 4</label>
 
-            <select value={formData.correctIndex} onChange={handleChange} placeholder="Correct Answer"> 
-                <option value={formData.answer1}>{formData.answer1}</option>
-                <option value={formData.answer2}>{formData.answer2}</option>
-                <option value={formData.answer3}>{formData.answer3}</option>
-                <option value={formData.answer4}>{formData.answer4}</option>
+            <select value={formData.correctIndex} onChange={handleCategoryChange} > 
+                <option value={categoryAnswer}>{formData.answer1}</option>
+                <option value={categoryAnswer}>{formData.answer2}</option>
+                <option value={categoryAnswer}>{formData.answer3}</option>
+                <option value={categoryAnswer}>{formData.answer4}</option>
             </select>
-            <button type="submit">Submit</button>
+            <button type="submit" value="Submit">Submit</button>
         </form>
         </div>
       </div>
