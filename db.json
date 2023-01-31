@@ -1,88 +1,331 @@
 {
-    "trivia": [
-      {
-        "id": 1,
-        "question": "What position does Harry play on the Quidditch team?",
-        "hint": "He needs to get the golden Snitch.",
-        "answers": [
-          "Keeper",
-          "Beater",
-          "Seeker",
-          "Chaser"
-        ],
-        "correctIndex": 2
-      },
-      {
-        "id": 2,
-        "question": "How does Ginny Weasley get Tom Riddles Diary?",
-        "hint": "This character is a Death Eater.",
-        "answers": [
-          "She buys the diary thinking its an ordinary notebook",
-          "Lucius Malfoy sneaks it into her school supplies",
-          "She gets it from another student who had an extra one",
-          "Fred and George give it to her as a prank"
-        ],
-        "correctIndex": 1
-      },
-      {
-        "id": 3,
-        "question": "What item was Hermione hiding from Harry and Ron?",
-        "hint": "It allowed her to attend more classes.",
-        "answers": [
-          "Time-Turner",
-          "Remembrall",
-          "Cloak of Invisibility",
-          "Sneakoscope"
-        ],
-        "correctIndex": 0
-      },
-      {
-        "id": 4,
-        "question": "Who helps Harry Potter figure out the the clue of the Golden Egg?",
-        "hint": "He was the prefect of the HufflePuff House.",
-        "answers": [
-          "Viktor Krum",
-          "Professor Dumbledor",
-          "Fleur Delacour",
-          "Cedric Diggory "
-        ],
-        "correctIndex": 3
-      },
-      {
-        "id": 5,
-        "question": "What type of magic does Snape teach Harry to combat Voldemort?",
-        "hint": "He has a his mental connection with Voldemort he needs to hide",
-        "answers": [
-          "Necromancy",
-          "Legilimency",
-          "Occlumency",
-          "Oneiric Combat"
-        ],
-        "correctIndex": 2
-      },
-      {
-        "id": 6,
-        "question": "What class did Professor Slughorn teach?",
-        "hint": "He offers the Felix Felicis, <i>liquid luck<i>, as a prize.",
-        "answers": [
-          "Potions",
-          "Transfiguration",
-          "Defense Against the Dark Arts",
-          "Divination"
-        ],
-        "correctIndex": 0
-      },{
-        "id": 7,
-        "question": "Which Weasley brother dies as a result of the Batlle of Hogwarts?",
-        "hint": "He was the other half to George",
-        "answers": [
-          "Percy",
-          "Fred",
-          "Charlie",
-          "Bill"
-        ],
-        "correctIndex": 1
-      }
-
-    ]
+  "trivia": [
+    {
+      "id": 1,
+      "question": "What position does Harry play on the Quidditch team?",
+      "hint": "He needs to get the golden Snitch.",
+      "answers": [
+        "Keeper",
+        "Beater",
+        "Seeker",
+        "Chaser"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 2,
+      "question": "How does Ginny Weasley get Tom Riddles Diary?",
+      "hint": "This character is a Death Eater.",
+      "answers": [
+        "She buys the diary thinking its an ordinary notebook",
+        "Lucius Malfoy sneaks it into her school supplies",
+        "She gets it from another student who had an extra one",
+        "Fred and George give it to her as a prank"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 3,
+      "question": "What item was Hermione hiding from Harry and Ron?",
+      "hint": "It allowed her to attend more classes.",
+      "answers": [
+        "Time-Turner",
+        "Remembrall",
+        "Cloak of Invisibility",
+        "Sneakoscope"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 4,
+      "question": "Who helps Harry Potter figure out the the clue of the Golden Egg?",
+      "hint": "He was the prefect of the HufflePuff House.",
+      "answers": [
+        "Viktor Krum",
+        "Professor Dumbledor",
+        "Fleur Delacour",
+        "Cedric Diggory "
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": 5,
+      "question": "What type of magic does Snape teach Harry to combat Voldemort?",
+      "hint": "He has a his mental connection with Voldemort he needs to hide",
+      "answers": [
+        "Necromancy",
+        "Legilimency",
+        "Occlumency",
+        "Oneiric Combat"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 6,
+      "question": "What class did Professor Slughorn teach?",
+      "hint": "He offers the Felix Felicis, <i>liquid luck<i>, as a prize.",
+      "answers": [
+        "Potions",
+        "Transfiguration",
+        "Defense Against the Dark Arts",
+        "Divination"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 7,
+      "question": "Which Weasley brother dies as a result of the Batlle of Hogwarts?",
+      "hint": "He was the other half to George",
+      "answers": [
+        "Percy",
+        "Fred",
+        "Charlie",
+        "Bill"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 8
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 9
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 10
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 11
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 12
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 13
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 14
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 15
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 16
+    },
+    {
+      "question": "",
+      "answer1": "",
+      "answer2": "",
+      "answer3": "",
+      "answer4": "",
+      "correctIndex": 0,
+      "id": 17
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 18
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 19
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 20
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 21
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 22
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 23
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 24
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 25
+    },
+    {
+      "question": "",
+      "answers": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": 26
+    },
+    {
+      "answers": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "id": 27
+    },
+    {
+      "answers": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "id": 28
+    },
+    {
+      "answers": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "id": 29
+    },
+    {
+      "answers": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "id": 30
+    },
+    {
+      "answers": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "id": 31
+    },
+    {
+      "answers": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "id": 32
+    }
+  ]
 }
