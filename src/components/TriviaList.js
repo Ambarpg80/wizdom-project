@@ -1,24 +1,29 @@
-import React  , {useEffect, useState} from "react";
+import React   from "react";
 import TriviaQuestion from "./TriviaQuestion"
 
-function TriviaList() {
+function TriviaList({triviaData, setTriviaData}) {
     
-    const [triviaData, setTriviaData] = useState([])
+    // const [triviaData, setTriviaData] = useState([])  , {useEffect, useState}
   
-    useEffect(()=>{
-        fetch('http://localhost:3000/trivia')
-        .then(res => res.json())
-        .then(data => setTriviaData(data))
-    },[])
+    // useEffect(()=>{
+    //     fetch('http://localhost:3000/trivia')
+    //     .then(res => res.json())
+    //     .then(data => setTriviaData(data))
+    // },[])
 
     function deleteQuestion(id){
      const filteredQuestionList = triviaData.filter(trivia => trivia.id !== id)
-     setTriviaData(filteredQuestionList)
+     fetch(`http://localhost:3000/trivia/${id}`,{
+        method: "DELETE"
+      })
+      .then(res => res.json())
+      .then(()=>setTriviaData(filteredQuestionList))
+     
     }
 
   console.log(triviaData)
     return (
-        <div >
+        <div className="container">
           {triviaData.map(trivia => <TriviaQuestion key={trivia.id} trivia={trivia} onDelete={deleteQuestion} />  )}
          </div>
     )

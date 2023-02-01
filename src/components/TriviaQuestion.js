@@ -1,32 +1,43 @@
-import React from "react";
+import React , {useState} from "react";
 
 function TriviaQuestion({trivia, onDelete}) {
-    console.log(trivia)
-    // style={{listStyleType: "none" , margin: "3px"}}
+    const  [showHint, setShowHint] = useState(false)
     const {id, question, hint, answers} = trivia
-    // const triviaAnswers = answers.map((answer, index) => {
-    //   return (<li key={answer[index]} value={answer}>
-    //             {answer} 
-    //           </li> )
-      //   }
-      // )
+    const triviaAnswers = answers.map((answer) => {
+      return (<div key={answer} >
+                <li   value={answer}   style={{listStyleType: "none" }} >
+                  {answer} 
+                </li> 
+                <hr/>
+              </div>)
+        }
+      )
 
     function handleDelete(e){
-      fetch(`http://localhost:3000/trivia/${id}`,{
-        method: "DELETE"
-      })
       onDelete(e.target.value)
     }
 
+    function seeHint(){
+      setShowHint(!showHint)
+      // return (<div>{showHint ? {hint} : null}</div>)
+    } 
   
     return (
-        <div className="App">
-           <ul>{id}. {question}
-            {/* {triviaAnswers} */}
-           </ul> 
-           <button value={id} onClick={handleDelete}>Delete</button>
-           <button value={hint}> ✨ Hint 📚 ✨ </button>
+      
+        <div className="container"   >
+          
+            <ul>
+              {id}. {question}
+            </ul>  
+              {triviaAnswers}
+          <div > 
+            <button style={{float: "left" }} value={id} onClick={handleDelete}>Delete</button>
+            <button style={{float: "right" }} value={hint} onClick={seeHint}> ✨ Hint 📚 ✨ </button>
+            <div>{showHint ? 
+                <div style={{padding: "15px"}}> {hint} </div> 
+                : null}</div>
         </div>
+      </div>
     )
 }
 export default TriviaQuestion
