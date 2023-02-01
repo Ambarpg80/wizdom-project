@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function TriviaForm({questions, onAddQuestion}) {
+function TriviaForm() {
    const [formData, setFormData] = useState({
     question: "",
     answer1: "",
@@ -8,40 +8,30 @@ function TriviaForm({questions, onAddQuestion}) {
     answer3: "",
     answer4: "",
     correctIndex: 0
-   })
-  const [categoryAnswer, setCategoryAnswer] =useState(formData.answer1)
+   });
 
-   function handleCategoryChange(e){
-    setCategoryAnswer(e.target.value)
-   }
- 
-   function handleInputChange(e){
-    setFormData(e.target.value)
+   function handleChange(e){
+   setFormData({...formData,
+           [e.target.id]: e.target.value,
+        }); 
    }
 
    function handleSubmit(e){
     e.preventDefault();
-    //setFormData(e.target.value)
     fetch("http://localhost:3000/trivia",{
         method: "POST",
         headers:{
             "Content-Type" : "application/json"
         },
-        body: JSON.stringify({
-            question: formData.question,
-            answers:[
-                     formData.answer1,
-                     formData.answer2,
-                     formData.answer3,
-                     formData.answer4,
-            ],
-            correctIndex: formData.correctIndex
+        body: JSON.stringify({  question: formData.question,
+                                answers: [formData.answer1,
+                                          formData.answer2,
+                                          formData.answer3,
+                                          formData.answer4,],
+                                correctIndex: formData.correctIndex,})
         }) 
-    })
-    .then(res => res.json())
-    .then(()=>onAddQuestion(questions.formData))
-   
-   }
+        setFormData(formData );
+    }
 
   
     return (
@@ -49,28 +39,60 @@ function TriviaForm({questions, onAddQuestion}) {
         <div className="container"> Help us add to the Fun! </div>
         <div className="container">
         <form onClick={handleSubmit}>
-            <input placeholder="New Question" value={formData.question} onChange={handleInputChange}></input>
-                <label>Question</label>
+            <label>  
+              Question:  <input placeholder="New Question" 
+                                type="text" 
+                                id="question" 
+                                value={formData.question} 
+                                onChange={handleChange}>
+                         </input>
+            </label><br/>
+            
+            <label> 
+              Answer 1 :  <input placeholder="Answer" 
+                                 type="text" 
+                                 id="answer1" 
+                                 value={formData.answer1} 
+                                 onChange={handleChange}>
+                          </input>
+            </label><br/>
+            
+            <label> 
+              Answer 2 :  <input placeholder="Answer" 
+                                 type="text" 
+                                 id="answer2" 
+                                 value={formData.answer2} 
+                                 onChange={handleChange}>
+                          </input>
+            </label><br/>
+            
+            <label> 
+              Answer 3 :  <input placeholder="Answer" 
+                                 type="text" 
+                                 id="answer3" 
+                                 value={formData.answer3} 
+                                 onChange={handleChange}>
+                          </input>
+            </label><br/>
+            
+            <label> 
+              Answer 4 :  <input placeholder="Answer" 
+                                 type="text" 
+                                 id="answer4" 
+                                 value={formData.answer4} 
+                                 onChange={handleChange}>
+                          </input>
+            </label><br/>
 
-            <input placeholder="Answer" value={formData.answer1} onChange={handleInputChange}></input>
-                <label>Answer 1</label>
-
-            <input placeholder="Answer" value={formData.answer2} onChange={handleInputChange}></input>
-                <label>Answer 2</label>
-
-            <input placeholder="Answer" value={formData.answer3} onChange={handleInputChange}></input>
-                <label>Answer 3</label>
-
-            <input placeholder="Answer" value={formData.answer4} onChange={handleInputChange}></input>
-                <label>Answer 4</label>
-
-            <select value={formData.correctIndex} onChange={handleCategoryChange} > 
-                <option value={categoryAnswer}>{formData.answer1}</option>
-                <option value={categoryAnswer}>{formData.answer2}</option>
-                <option value={categoryAnswer}>{formData.answer3}</option>
-                <option value={categoryAnswer}>{formData.answer4}</option>
-            </select>
-            <button type="submit" value="Submit">Submit</button>
+            <label> Correct Answer: 
+              <select id="correctIndex" value={formData.correctIndex} onChange={handleChange}>
+                <option id="answer1" value="0"> {formData.answer1} </option>
+                <option id="answer2" value="1"> {formData.answer2} </option>
+                <option id="answer3" value="2"> {formData.answer3} </option>
+                <option id="answer4" value="3"> {formData.answer4} </option>
+              </select>
+            </label><br/>
+            <button type="submit">Submit</button>
         </form>
         </div>
       </div>

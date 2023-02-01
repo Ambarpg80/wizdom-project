@@ -1,24 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 // import NavBar from "./components/NavBar";
 // import Homepage from "./components/Homepage.js";
-// import TriviaForm from "./components/TriviaForm"
+import TriviaForm from "./components/TriviaForm"
 import TriviaList from "./components/TriviaList"
 // import { Switch, Route} from "react-router-dom";
 
 
 function App() {
-  // const [triviaData, setTriviaData] = useState([])
+  const [triviaData, setTriviaData] = useState([])
 
-  // useEffect(()=>{
-  //       fetch('http://localhost:3000/trivia')
-  //       .then(res => res.json())
-  //       .then(data => setTriviaData(data))
-  //   },[])
-  // console.log(triviaData)
-  // function handleAddQuestion(newQuestion){
-  //   setQuestions([...questions, newQuestion])
-  // }
+  useEffect(()=>{
+        fetch('http://localhost:3000/trivia')
+        .then(res => res.json())
+        .then(data => setTriviaData(data))
+    },[])
+//  console.log(triviaData)
 
   return (
     <div className="App">
@@ -27,13 +24,13 @@ function App() {
       </header>
       {/* <Switch> */}
         {/* <Route exact path="/">
-          <Homepage questions={questions} setQuestions={setQuestions}/>
+          <Homepage triviaData={triviaData} setTriviaData={setTriviaData}/>
         </Route> */}
         {/* <Route path="/quiz"> */}
-          <TriviaList  />
+          {/* <TriviaList triviaData={triviaData}  /> */}
         {/* </Route> */}
-        {/* <Route path="/form"> */}
-          {/* <TriviaForm questions={questions} onAddQuestion={handleAddQuestion} /> */}
+        {/* <Route path="/form">  */}
+          <TriviaForm  />
         {/* </Route> */}
       {/* </Switch> */}
       <div className="container">
