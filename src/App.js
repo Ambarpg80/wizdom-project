@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-// import NavBar from "./components/NavBar";
-// import Homepage from "./components/Homepage.js";
+import NavBar from "./components/NavBar";
+import Homepage from "./components/Homepage.js";
 import TriviaForm from "./components/TriviaForm"
 import TriviaList from "./components/TriviaList"
-// import { Switch, Route} from "react-router-dom";
+import TriviaQuestion from "./components/TriviaQuestion"
+import { Switch, Route} from "react-router-dom";
 
 
 function App() {
@@ -19,25 +20,23 @@ function App() {
 
   return (
     <div className="App">
-      <header  className="App-header">
-        {/* <NavBar /> */}
-      </header>
-      {/* <Switch> */}
-        {/* <Route exact path="/">
+      <nav  className="App-header">
+        <NavBar />
+      </nav>
+      <Switch> 
+         <Route exact path="/">
           <Homepage triviaData={triviaData} setTriviaData={setTriviaData}/>
-        </Route> */}
-        {/* <Route path="/quiz"> */}
-          {/* <TriviaList triviaData={triviaData}  /> */}
-        {/* </Route> */}
-        {/* <Route path="/form">  */}
+        </Route> 
+        <Route path="/quiz"> 
+          <TriviaList triviaData={triviaData}  />
+        </Route>
+        <Route path="/quiz/:id"> 
+          <TriviaQuestion  />
+        </Route>
+         <Route path="/form"> 
           <TriviaForm  />
-        {/* </Route> */}
-      {/* </Switch> */}
-      <div className="container">
-            Welcome <br/>
-            Would you like to play some trivia? 
-      </div>
-            
+        </Route>
+      </Switch>             
     </div>
   );
 }
