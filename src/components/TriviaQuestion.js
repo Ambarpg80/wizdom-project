@@ -1,11 +1,13 @@
 import React , {useState} from "react";
+// import { useHistory } from "react-router-dom";
 
-function TriviaQuestion({trivia, onDelete}) {
+function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
     const  [showHint, setShowHint] = useState(false)
-    const {id, question, hint, answers} = trivia
-    const triviaAnswers = answers.map((answer) => {
+
+    const {id, question, hint, answers ,correctIndex} = trivia
+    const triviaAnswers = answers.map((answer, index) => {
       return (<div key={answer} >
-                <li   value={answer}   style={{listStyleType: "none" }} >
+                <li   onClick={handleAnswers} value={answer}  id={index} style={{listStyleType: "none" }} >
                   {answer} 
                 </li> 
                 <hr/>
@@ -19,8 +21,12 @@ function TriviaQuestion({trivia, onDelete}) {
 
     function seeHint(){
       setShowHint(!showHint)
-      // return (<div>{showHint ? {hint} : null}</div>)
     } 
+    
+    function handleAnswers(e){
+      onhandleAnswers(correctIndex, e)
+    }
+    
   
     return (
       
@@ -33,10 +39,12 @@ function TriviaQuestion({trivia, onDelete}) {
           <div > 
             <button style={{float: "left" }} value={id} onClick={handleDelete}>Delete</button>
             <button style={{float: "right" }} value={hint} onClick={seeHint}> ✨ Hint 📚 ✨ </button>
-            <div>{showHint ? 
+            
+            <div style={{padding: "15px"}}>{showHint ? 
                 <div style={{padding: "15px"}}> {hint} </div> 
                 : null}</div>
-        </div>
+          </div>  
+              {points}
       </div>
     )
 }

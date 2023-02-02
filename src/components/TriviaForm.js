@@ -3,6 +3,7 @@ import React, {useState} from "react";
 function TriviaForm() {
    const [formData, setFormData] = useState({
     question: "",
+    hint: "",
     answer1: "",
     answer2: "",
     answer3: "",
@@ -24,13 +25,15 @@ function TriviaForm() {
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({  question: formData.question,
+                                hint: formData.hint,
                                 answers: [formData.answer1,
                                           formData.answer2,
                                           formData.answer3,
                                           formData.answer4,],
-                                correctIndex: formData.correctIndex,})
+                                correctIndex: parseInt(formData.correctIndex),})
         }) 
         setFormData(formData );
+        
     }
 
   
@@ -38,16 +41,27 @@ function TriviaForm() {
       <div >
         <div className="container"> Help us add to the Fun! </div>
         <div className="container">
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label>  
-              Question:  <input placeholder="New Question" 
+              Question :  <input placeholder="New Question" 
                                 type="text" 
                                 id="question" 
                                 value={formData.question} 
-                                onChange={handleChange}>
+                                onChange={handleChange}
+                                >
+
                          </input>
             </label><br/>
-            
+
+            <label> 
+              Hint :  <input placeholder="Hint" 
+                                 type="text" 
+                                 id="hint" 
+                                 value={formData.hint} 
+                                 onChange={handleChange}>
+                          </input>
+            </label><br/>
+
             <label> 
               Answer 1 :  <input placeholder="Answer" 
                                  type="text" 
@@ -83,6 +97,7 @@ function TriviaForm() {
                                  onChange={handleChange}>
                           </input>
             </label><br/>
+            
 
             <label> Correct Answer: 
               <select id="correctIndex" value={formData.correctIndex} onChange={handleChange}>
