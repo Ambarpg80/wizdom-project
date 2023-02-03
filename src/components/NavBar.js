@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
+
 function NavBar(){
     
     return(
@@ -13,3 +15,4 @@ function NavBar(){
 }
 
 export default NavBar;
+// onCLick={handleOneQuestion} {setCurrentQ}

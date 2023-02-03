@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import FormEdit from "./FormEdit";
 
-function TriviaForm() {
-   const [formData, setFormData] = useState({
+function TriviaForm({triviaData}) {
+  const [edit , setEdit] = useState(false)
+  const [formData, setFormData] = useState({
     question: "",
     hint: "",
     answer1: "",
@@ -9,15 +11,15 @@ function TriviaForm() {
     answer3: "",
     answer4: "",
     correctIndex: 0
-   });
+  });
 
-   function handleChange(e){
+  function handleChange(e){
    setFormData({...formData,
            [e.target.id]: e.target.value,
         }); 
-   }
+  }
 
-   function handleSubmit(e){
+  function handleSubmit(e){
     e.preventDefault();
     fetch("http://localhost:3000/trivia",{
         method: "POST",
@@ -31,86 +33,104 @@ function TriviaForm() {
                                           formData.answer3,
                                           formData.answer4,],
                                 correctIndex: parseInt(formData.correctIndex),})
-        }) 
-        setFormData(formData );
+    }) 
+      setFormData(formData );
         
-    }
+  }
+   
+  function editButton(){
+    setEdit(!edit)
+  }
+
+ function updateQuestion(updatedItem){
+  console.log(updatedItem)
+ }
 
   
-    return (
-      <div >
-        <div className="container"> Help us add to the Fun! </div>
+  return (
+      <div className=" formPage-text ">
+        <div > Help us add to the Fun! </div>
         <div className="container">
-        <form onSubmit={handleSubmit}>
-            <label>  
-              Question :  <input placeholder="New Question" 
-                                type="text" 
-                                id="question" 
-                                value={formData.question} 
-                                onChange={handleChange}
-                                >
+          <form onSubmit={handleSubmit}>
+              <label>  
+                Question :  <input placeholder="New Question" 
+                                  type="text" 
+                                  id="question" 
+                                  value={formData.question} 
+                                  onChange={handleChange}
+                                  >
 
-                         </input>
-            </label><br/>
+                          </input>
+              </label><br/>
 
-            <label> 
-              Hint :  <input placeholder="Hint" 
-                                 type="text" 
-                                 id="hint" 
-                                 value={formData.hint} 
-                                 onChange={handleChange}>
-                          </input>
-            </label><br/>
+              <label> 
+                Hint :  <input placeholder="Hint" 
+                                  type="text" 
+                                  id="hint" 
+                                  value={formData.hint} 
+                                  onChange={handleChange}>
+                            </input>
+              </label><br/>
 
-            <label> 
-              Answer 1 :  <input placeholder="Answer" 
-                                 type="text" 
-                                 id="answer1" 
-                                 value={formData.answer1} 
-                                 onChange={handleChange}>
-                          </input>
-            </label><br/>
-            
-            <label> 
-              Answer 2 :  <input placeholder="Answer" 
-                                 type="text" 
-                                 id="answer2" 
-                                 value={formData.answer2} 
-                                 onChange={handleChange}>
-                          </input>
-            </label><br/>
-            
-            <label> 
-              Answer 3 :  <input placeholder="Answer" 
-                                 type="text" 
-                                 id="answer3" 
-                                 value={formData.answer3} 
-                                 onChange={handleChange}>
-                          </input>
-            </label><br/>
-            
-            <label> 
-              Answer 4 :  <input placeholder="Answer" 
-                                 type="text" 
-                                 id="answer4" 
-                                 value={formData.answer4} 
-                                 onChange={handleChange}>
-                          </input>
-            </label><br/>
-            
+              <label> 
+                Answer 1 :  <input placeholder="Answer" 
+                                  type="text" 
+                                  id="answer1" 
+                                  value={formData.answer1} 
+                                  onChange={handleChange}>
+                            </input>
+              </label><br/>
+              
+              <label> 
+                Answer 2 :  <input placeholder="Answer" 
+                                  type="text" 
+                                  id="answer2" 
+                                  value={formData.answer2} 
+                                  onChange={handleChange}>
+                            </input>
+              </label><br/>
+              
+              <label> 
+                Answer 3 :  <input placeholder="Answer" 
+                                  type="text" 
+                                  id="answer3" 
+                                  value={formData.answer3} 
+                                  onChange={handleChange}>
+                            </input>
+              </label><br/>
+              
+              <label> 
+                Answer 4 :  <input placeholder="Answer" 
+                                  type="text" 
+                                  id="answer4" 
+                                  value={formData.answer4} 
+                                  onChange={handleChange}>
+                            </input>
+              </label><br/>
+              
 
-            <label> Correct Answer: 
-              <select id="correctIndex" value={formData.correctIndex} onChange={handleChange}>
-                <option id="answer1" value="0"> {formData.answer1} </option>
-                <option id="answer2" value="1"> {formData.answer2} </option>
-                <option id="answer3" value="2"> {formData.answer3} </option>
-                <option id="answer4" value="3"> {formData.answer4} </option>
-              </select>
-            </label><br/>
-            <button type="submit">Submit</button>
-        </form>
+              <label> Correct Answer :  
+                <select id="correctIndex" value={formData.correctIndex} onChange={handleChange}>
+                  <option id="answer1" value="0"> {formData.answer1} </option>
+                  <option id="answer2" value="1"> {formData.answer2} </option>
+                  <option id="answer3" value="2"> {formData.answer3} </option>
+                  <option id="answer4" value="3"> {formData.answer4} </option>
+                </select>
+              </label><br/>
+              <button type="submit">Submit</button> 
+          </form> 
+          <button  onClick={editButton}>Edit</button> 
+            <div>
+            {edit ? (<div> < FormEdit formData={formData} 
+                              setFormData={setFormData} 
+                              triviaData={triviaData}
+                              onUpdateQuestion={updateQuestion}/> 
+                    </div>) : null
+            }
+            </div>
         </div>
       </div>
     )
 }
 export default TriviaForm
+// import { Switch, Route} from "react-router-dom";

@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(4, 4, 68);
+  
   padding: 0;
   margin: 0;
   width: 100%;
@@ -23,10 +23,22 @@ body{
   
 }
 
-.App {
+.homepage {
+  /* background-image: url(src/photos/Parade_Harry_Potter_Trivia_page.jpeg); */
+  background-color: rgb(36, 36, 36);
+  height: 100vh; 
+  
   text-align: center;
   font-size : 60px;
   color:rgb(132, 124, 111)
+}
+
+.formPage-text{
+  background-color: rgb(4, 4, 68);
+  height: 100vh;
+  text-align: center;
+  font-size: 35px; 
+  color: rgb(234, 165, 36) ; 
 }
 
 .container{

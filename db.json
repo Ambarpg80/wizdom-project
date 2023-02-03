@@ -2,7 +2,7 @@
   "trivia": [
     {
       "id": 1,
-      "question": "What position does Harry play on the Quidditch team?",
+      "question": "In Harry Potter and The Sorcerer's Stone, What position does Harry Potter play on the Quidditch team?",
       "hint": "He needs to get the golden Snitch.",
       "answers": [
         "Keeper",
@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "question": "How does Ginny Weasley get Tom Riddles Diary?",
+      "question": "In Harry Potter and The Chamber of Secrets, How does Ginny Weasley get Tom Riddles Diary?",
       "hint": "This character is a Death Eater.",
       "answers": [
         "She buys the diary thinking its an ordinary notebook",
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "question": "What item was Hermione hiding from Harry and Ron?",
+      "question": "In Harry Potter and The Prisoner of Azkaban, What item was Hermione hiding from Harry and Ron?",
       "hint": "It allowed her to attend more classes.",
       "answers": [
         "Time-Turner",
@@ -38,7 +38,7 @@
     },
     {
       "id": 4,
-      "question": "Who helps Harry Potter figure out the the clue of the Golden Egg?",
+      "question": "In Harry Potter and The Goblet of Fire, Who helps Harry Potter figure out the the clue of the Golden Egg?",
       "hint": "He was the prefect of the HufflePuff House.",
       "answers": [
         "Viktor Krum",
@@ -50,8 +50,8 @@
     },
     {
       "id": 5,
-      "question": "What type of magic does Snape teach Harry to combat Voldemort?",
-      "hint": "He has a his mental connection with Voldemort he needs to hide",
+      "question": "In Harry Potter and The Order of the Phoenix, What type of magic does Snape teach Harry to combat Voldemort?",
+      "hint": "He has a mental connection with Voldemort that he needs to hide",
       "answers": [
         "Necromancy",
         "Legilimency",
@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "question": "What class did Professor Slughorn teach?",
+      "question": "In Harry Potter and The Half-Blood Prince, What class did Professor Slughorn teach?",
       "hint": "He offers the Felix Felicis, liquid luck, as a prize.",
       "answers": [
         "Potions",
@@ -74,7 +74,7 @@
     },
     {
       "id": 7,
-      "question": "Which Weasley brother dies as a result of the Batlle of Hogwarts?",
+      "question": "In Harry Potter and The Deathly Hallows, Which Weasley brother dies as a result of the Battle of Hogwarts?",
       "hint": "He was the other half to George",
       "answers": [
         "Percy",

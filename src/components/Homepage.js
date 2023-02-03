@@ -1,24 +1,15 @@
-import React, {useEffect, useState} from "react";
-import { NavLink } from "react-router-dom";
-import NavBar from "./NavBar";
-import TriviaForm from "./TriviaForm"
-import TriviaList from "./TriviaList"
+import React from "react";
+
+   
 
 
+function Homepage() {
 
-
-function Homepage({questions, setQuestions}) {
-//    const [questions, SetQuestions] = useState([])
-  
-    // useEffect(()=>{
-    //     fetch('http://localhost:3000/trivia')
-    //     .then(res => res.json())
-    //     .then(trivia => setQuestions(trivia))
-    // },[])
 
     return (
         <div >
-            <div className="container">
+            <div className="homepage">
+                  {/* style={{backgroundImage : "src/photos/Parade_Harry_Potter_Trivia_page.jpeg"}} */}
             Welcome <br/>
             Would you like to play some trivia? 
             </div>

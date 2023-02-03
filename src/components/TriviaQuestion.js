@@ -1,10 +1,12 @@
 import React , {useState} from "react";
-// import { useHistory } from "react-router-dom";
+
 
 function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
     const  [showHint, setShowHint] = useState(false)
 
     const {id, question, hint, answers ,correctIndex} = trivia
+    
+
     const triviaAnswers = answers.map((answer, index) => {
       return (<div key={answer} >
                 <li   onClick={handleAnswers} value={answer}  id={index} style={{listStyleType: "none" }} >
@@ -24,7 +26,7 @@ function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
     } 
     
     function handleAnswers(e){
-      onhandleAnswers(correctIndex, e)
+      onhandleAnswers( correctIndex, e)
     }
     
   
@@ -44,7 +46,7 @@ function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
                 <div style={{padding: "15px"}}> {hint} </div> 
                 : null}</div>
           </div>  
-              {points}
+             Total Points: {points}
       </div>
     )
 }
