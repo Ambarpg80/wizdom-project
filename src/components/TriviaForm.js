@@ -42,7 +42,7 @@ function TriviaForm() {
       <div className=" formPage-text " >
         
         <div className="container" >
-          <div> <b> Help us add to the Fun! </b> </div>
+          <div style={{fontSize: "25px" , margin: "15px"}}> <b> Help us add to the Fun! </b> </div>
           <form onSubmit={handleSubmit}>
               <label>  
                 Question :  <input placeholder="New Question" 

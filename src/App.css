@@ -58,11 +58,26 @@ body{
 
 input {
   border-radius: 5px;
-  margin: 2px;
-  padding: 5px;
-  padding-right: 55px;
-  
+  margin: 5px;
+  height: 25px;
+  width: 350px;
 }
+
+select{
+  width: 150px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+button{
+  width: 150px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 .quiz-page{
   background-color: rgb(57, 57, 57);
   background-image: url(https://mcdn.wallpapersafari.com/medium/37/86/5SZ3AR.jpg);
