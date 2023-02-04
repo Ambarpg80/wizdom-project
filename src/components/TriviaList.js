@@ -32,13 +32,14 @@ function TriviaList({triviaData, setTriviaData}) {
           trivia={trivia} 
           onDelete={deleteQuestion} 
           onhandleAnswers={pointAnswers}
-          points={points}/>
+          points={points}
+          setPoints={setPoints}/>
      </div> 
      :  null
      })
 
     return (
-      <div>
+      <div className="quiz-page">
         <div className="container">
         { perQuestion }  
           <h1> {points } points have been awarded to you for your  knowledge of Hogwarts History!</h1>

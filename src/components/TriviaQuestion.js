@@ -1,7 +1,7 @@
 import React , {useState} from "react";
 
 
-function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
+function TriviaQuestion({trivia, onDelete, onhandleAnswers, points,  setPoints}) {
     const  [showHint, setShowHint] = useState(false)
 
     const {id, question, hint, answers ,correctIndex} = trivia
@@ -23,6 +23,7 @@ function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
 
     function seeHint(){
       setShowHint(!showHint)
+      setPoints(points => points-3)
     } 
     
     function handleAnswers(e){
@@ -35,7 +36,7 @@ function TriviaQuestion({trivia, onDelete, onhandleAnswers, points}) {
         <div className="container"   >
           
             <ul>
-              {id}. {question}
+             <b> {id}. {question} </b> 
             </ul>  
               {triviaAnswers}
           <div > 

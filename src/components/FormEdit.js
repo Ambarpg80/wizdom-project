@@ -3,70 +3,63 @@ import React, {useState} from "react";
 function FormEdit({triviaData, formData, setFormData, onUpdateQuestion}) {
     const [editForm , setEditForm] = useState("")  
 
-    function handleChange(e){
+    function handleEditChange(e){
         setEditForm(e.target.value)
+        console.log(e.target.id) 
+
     }
    
     function handleUpdate(e){
-        e.preventDefault();
-        fetch("http://localhost:3000/trivia/id",{
+        fetch(`"http://localhost:3000/trivia/${e.target.id}`,{
             method: "PATCH",
             headers:{
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json" 
             },
-            body: JSON.stringify({[e.target.id] : e.target.value})
+            body: JSON.stringify (formData.question,
+                                 formData.hint ,
+                                 formData.answers,
+                                 formData.correctIndex ,
+                                 )
         }) 
-        console.log(e.target.value );
+        console.log(e.target.id );
             
       }
     return (
         <div className="edit">
             Edit Your Question Below
             <form onSubmit={handleUpdate}> 
-            <select  onChange={handleChange}>
+              <select  onChange={handleEditChange}>
                 {triviaData.map(trivia => <option style={{margin: "15px"}} key={trivia.id} id={trivia.id} value={trivia.question}>{trivia.question} </option> )}
-            </select>
+              </select>
 
-            {triviaData.map(trivia => { 
-              return  (trivia.id === editForm) ?
-               
-                <div key={trivia.id}>
-                  <label>  Question :     
-                  <input id={trivia.id} value={trivia.question} onChange={handleChange}>
-                    </input>
-                    </label><br/>
-                
-                
-                    <label> Answer 1 :     
-                    <input id={trivia.answers[0]} value={trivia.answer1} onChange={handleChange}>
-                    </input>
+                <div key={formData.id}>
+                   <label> Answer 1 :     
+                      <input id={formData.answer[0]} value={formData.answer1} onChange={handleEditChange}></input>
                     </label><br/>
                     
                     <label> Answer 2 :     
-                        <input id={trivia.answers[1]} value={trivia.answer2} onChange={handleChange}></input>
+                      <input id={formData.answer[1]} value={formData.answer2} onChange={handleEditChange}></input>
                     </label><br/>
                     
                     <label> Answer 3 :     
-                    <input id={trivia.answers[2]} value={trivia.answer3} onChange={handleChange}></input>
+                      <input id={formData.answer[2]} value={formData.answer3} onChange={handleEditChange}></input>
                     </label><br/>
 
                     
                     <label> Answer 4:     
-                    <input  id={trivia.answers[3]} value={trivia.answer4} onChange={handleChange}></input>
+                      <input  id={formData.answer[3]} value={formData.answer4} onChange={handleEditChange}></input>
                     </label><br/>
                     
                     <label> Correct Answer :     
-                    <select id="correctIndex" value={formData.correctIndex} onChange={handleChange}>
-                        <option id="answer1" value="0"> {formData.answer1} </option>
-                        <option id="answer2" value="1"> {formData.answer2} </option>
-                        <option id="answer3" value="2"> {formData.answer3} </option>
-                        <option id="answer4" value="3"> {formData.answer4} </option>
-                    </select>
+                      <select id={formData.correctIndex} value={formData.correctIndex} onChange={handleEditChange}>
+                        <option id={formData.answer[0]} value="0"> {formData.answer1} </option>
+                        <option id={formData.answer[1]} value="1"> {formData.answer2} </option>
+                        <option id={formData.answer[2]} value="2"> {formData.answer3} </option>
+                        <option id={formData.answer[3]} value="3"> {formData.answer4} </option>
+                      </select>
                     </label><br/>
-                </div> : null
-                })
-                
-            } 
+                </div> 
+               
             <button type="submit">Submit</button> 
             </form>
         </div>

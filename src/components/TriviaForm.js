@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import FormEdit from "./FormEdit";
 
-function TriviaForm({triviaData}) {
-  const [edit , setEdit] = useState(false)
+
+function TriviaForm() {
   const [formData, setFormData] = useState({
     question: "",
     hint: "",
@@ -38,19 +37,12 @@ function TriviaForm({triviaData}) {
         
   }
    
-  function editButton(){
-    setEdit(!edit)
-  }
 
- function updateQuestion(updatedItem){
-  console.log(updatedItem)
- }
-
-  
   return (
-      <div className=" formPage-text ">
-        <div > Help us add to the Fun! </div>
-        <div className="container">
+      <div className=" formPage-text " >
+        
+        <div className="container" >
+          <div> <b> Help us add to the Fun! </b> </div>
           <form onSubmit={handleSubmit}>
               <label>  
                 Question :  <input placeholder="New Question" 
@@ -68,7 +60,8 @@ function TriviaForm({triviaData}) {
                                   type="text" 
                                   id="hint" 
                                   value={formData.hint} 
-                                  onChange={handleChange}>
+                                  onChange={handleChange}
+                                  style={{marginLeft : "40px"}}>
                             </input>
               </label><br/>
 
@@ -119,18 +112,9 @@ function TriviaForm({triviaData}) {
               </label><br/>
               <button type="submit">Submit</button> 
           </form> 
-          <button  onClick={editButton}>Edit</button> 
-            <div>
-            {edit ? (<div> < FormEdit formData={formData} 
-                              setFormData={setFormData} 
-                              triviaData={triviaData}
-                              onUpdateQuestion={updateQuestion}/> 
-                    </div>) : null
-            }
-            </div>
+         
         </div>
       </div>
     )
 }
 export default TriviaForm
-// import { Switch, Route} from "react-router-dom";
