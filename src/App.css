@@ -27,7 +27,8 @@ body{
 .fade-in-image {
   background-color: black;
   animation: fadeIn 5s;
-  height: 80vh; 
+  height: 100vh;
+  
 }
 
 @keyframes fadeIn {
