@@ -15,7 +15,10 @@ function App() {
         .then(res => res.json())
         .then(data => setTriviaData(data))
     },[])
- 
+    
+  function handleUpdate(newQuestion){
+      setTriviaData([...triviaData, newQuestion])
+  }
 
   return (
     <div className="App">
@@ -30,7 +33,7 @@ function App() {
           <TriviaList triviaData={triviaData}  />
         </Route>
         <Route path="/form"> 
-          <TriviaForm  triviaData={triviaData}/>
+          <TriviaForm  onUpdate={handleUpdate}/>
         </Route>
       </Switch>             
     </div>

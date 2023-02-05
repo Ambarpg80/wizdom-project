@@ -7,7 +7,6 @@ function TriviaList({triviaData, setTriviaData}) {
    const [currentQ, setCurrentQ] = useState(1);
 
   
-  
   function deleteQuestion(id){
      const filteredQuestionList = triviaData.filter(trivia => trivia.id !== id)
      fetch(`http://localhost:3000/trivia/${id}`,{
@@ -43,7 +42,6 @@ function TriviaList({triviaData, setTriviaData}) {
         <div className="container">
         { perQuestion }  
           <h1> {points } points have been awarded to your House for your knowledge of Hogwarts History!</h1>
-          
         </div>
       </div>   
     )

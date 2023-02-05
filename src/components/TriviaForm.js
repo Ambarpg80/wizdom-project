@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-function TriviaForm() {
+function TriviaForm({onUpdate}) {
   const [formData, setFormData] = useState({
     question: "",
     hint: "",
@@ -20,20 +20,24 @@ function TriviaForm() {
 
   function handleSubmit(e){
     e.preventDefault();
-    fetch("http://localhost:3000/trivia",{
-        method: "POST",
-        headers:{
-            "Content-Type" : "application/json"
-        },
-        body: JSON.stringify({  question: formData.question,
+    const newFormItem= {  question: formData.question,
                                 hint: formData.hint,
                                 answers: [formData.answer1,
                                           formData.answer2,
                                           formData.answer3,
                                           formData.answer4,],
-                                correctIndex: parseInt(formData.correctIndex),})
+                                correctIndex: parseInt(formData.correctIndex),
+                        };
+    fetch("http://localhost:3000/trivia",{
+        method: "POST",
+        headers:{
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(newFormItem)
     }) 
-      setFormData(formData );
+    .then(res => res.json())
+    .then((newFormItem)=>onUpdate(newFormItem ))
+    
         
   }
    
