@@ -42,10 +42,9 @@ function TriviaList({triviaData, setTriviaData}) {
       <div className="quiz-page">
         <div className="container">
         { perQuestion }  
-          <h1> {points } points have been awarded to you for your  knowledge of Hogwarts History!</h1>
+          <h1> {points } points have been awarded to your House for your knowledge of Hogwarts History!</h1>
           
-          {/* <p onClick={()=> setPoints(0) && trivia.id === setCurrentQ(1) } ><u>Try Again?</u></p> */}
-         </div>
+        </div>
       </div>   
     )
 }
