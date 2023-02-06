@@ -7,13 +7,9 @@ function TriviaList({triviaData, setTriviaData}) {
    const [currentQ, setCurrentQ] = useState(1);
 
   
-  function deleteQuestion(id){
-     const filteredQuestionList = triviaData.filter(trivia => trivia.id !== id)
-     fetch(`http://localhost:3000/trivia/${id}`,{
-        method: "DELETE"
-      })
-      .then(res => res.json())
-      .then(()=>setTriviaData(filteredQuestionList)) 
+  function deleteQuestion(deletedQuestion){
+     const filteredQuestionList = triviaData.filter(trivia => trivia.id !== deletedQuestion.id)
+     return setTriviaData(filteredQuestionList) 
     }
     
     function pointAnswers(correctIndex, e){

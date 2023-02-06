@@ -16,7 +16,7 @@ function App() {
         .then(data => setTriviaData(data))
     },[])
     
-  function handleUpdate(newQuestion){
+  function handlenewEntry(newQuestion){
       setTriviaData([...triviaData, newQuestion])
   }
 
@@ -30,10 +30,10 @@ function App() {
           <Homepage />
         </Route> 
         <Route path="/quiz"> 
-          <TriviaList triviaData={triviaData}  />
+          <TriviaList triviaData={triviaData} setTriviaData={setTriviaData} />
         </Route>
         <Route path="/form"> 
-          <TriviaForm  onUpdate={handleUpdate}/>
+          <TriviaForm  onAddEntry={handlenewEntry}/>
         </Route>
       </Switch>             
     </div>

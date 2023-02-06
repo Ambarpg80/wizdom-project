@@ -1,7 +1,7 @@
 import React , {useState} from "react";
 
 
-function TriviaQuestion({trivia, onDelete, onhandleAnswers, points,  setPoints}) {
+function TriviaQuestion({trivia, onDelete, onhandleAnswers, setPoints}) {
     const  [showHint, setShowHint] = useState(false)
 
     const {id, question, hint, answers ,correctIndex} = trivia
@@ -17,8 +17,12 @@ function TriviaQuestion({trivia, onDelete, onhandleAnswers, points,  setPoints})
         }
       )
 
-    function handleDelete(e){
-      onDelete(e.target.value)
+    function handleDelete(){
+      fetch(`http://localhost:3000/trivia/${trivia.id}`,{
+        method: "DELETE"
+      })
+      .then(res => res.json())
+      .then(()=> onDelete(trivia))
     }
 
     function seeHint(){
@@ -47,7 +51,7 @@ function TriviaQuestion({trivia, onDelete, onhandleAnswers, points,  setPoints})
                 <div style={{padding: "15px"}}> {hint} </div> 
                 : null}</div>
           </div>  
-             Total Points: {points}
+            
       </div>
     )
 }
