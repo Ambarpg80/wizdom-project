@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-function TriviaForm({onUpdate}) {
+function TriviaForm({onAddEntry}) {
   const [formData, setFormData] = useState({
     question: "",
     hint: "",
@@ -36,7 +36,7 @@ function TriviaForm({onUpdate}) {
         body: JSON.stringify(newFormItem)
     }) 
     .then(res => res.json())
-    .then((newFormItem)=>onUpdate(newFormItem ))
+    .then((newFormItem)=>onAddEntry(newFormItem ))
     
         
   }
