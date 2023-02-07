@@ -36,9 +36,14 @@ function TriviaForm({onAddEntry}) {
         body: JSON.stringify(newFormItem)
     }) 
     .then(res => res.json())
-    .then((newFormItem)=>onAddEntry(newFormItem ))
-    
-        
+    .then((newFormItem)=>{onAddEntry(newFormItem)
+                          setFormData({ question: "",
+                                        hint: "",
+                                        answer1: "",
+                                        answer2: "",
+                                        answer3: "",
+                                        answer4: "",})
+    })
   }
    
 
