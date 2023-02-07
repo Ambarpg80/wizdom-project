@@ -26,14 +26,15 @@ function App() {
         <NavBar />
       </header>
       <Switch> 
-         <Route exact path="/">
-          <Homepage />
-        </Route> 
+          
         <Route path="/quiz"> 
           <TriviaList triviaData={triviaData} setTriviaData={setTriviaData} />
         </Route>
         <Route path="/form"> 
           <TriviaForm  onAddEntry={handlenewEntry}/>
+        </Route>
+        <Route exact path="/">
+          <Homepage />
         </Route>
       </Switch>             
     </div>

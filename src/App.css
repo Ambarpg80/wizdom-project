@@ -23,7 +23,9 @@ body{
   height: 50px;
   
 }
-
+.active{
+  color: rgb(204, 177, 129)
+}
 .fade-in-image {
   background-color: black;
   animation: fadeIn 5s;
