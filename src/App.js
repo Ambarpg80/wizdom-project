@@ -20,6 +20,12 @@ function App() {
       setTriviaData([...triviaData, newQuestion])
   }
 
+  function deleteQuestion(deletedQuestion){
+    const filteredQuestionList = triviaData.filter(trivia => trivia.id !== deletedQuestion.id)
+      return setTriviaData(filteredQuestionList) 
+   }
+
+
   return (
     <div className="App">
       <header  className="App-header">
@@ -28,7 +34,9 @@ function App() {
       <Switch> 
           
         <Route path="/quiz"> 
-          <TriviaList triviaData={triviaData} setTriviaData={setTriviaData} />
+          <TriviaList triviaData={triviaData} 
+                      setTriviaData={setTriviaData}
+                      onDelete={deleteQuestion} />
         </Route>
         <Route path="/form"> 
           <TriviaForm  onAddEntry={handlenewEntry}/>

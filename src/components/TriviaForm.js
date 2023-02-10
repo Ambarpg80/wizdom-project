@@ -21,12 +21,12 @@ function TriviaForm({onAddEntry}) {
   function handleSubmit(e){
     e.preventDefault();
     const newFormItem= {  question: formData.question,
-                                hint: formData.hint,
-                                answers: [formData.answer1,
-                                          formData.answer2,
-                                          formData.answer3,
-                                          formData.answer4,],
-                                correctIndex: parseInt(formData.correctIndex),
+                          hint: formData.hint,
+                          answers: [formData.answer1,
+                                    formData.answer2,
+                                    formData.answer3,
+                                    formData.answer4,],
+                          correctIndex: parseInt(formData.correctIndex),
                         };
     fetch("http://localhost:3000/trivia",{
         method: "POST",
@@ -36,13 +36,14 @@ function TriviaForm({onAddEntry}) {
         body: JSON.stringify(newFormItem)
     }) 
     .then(res => res.json())
-    .then((newFormItem)=>{onAddEntry(newFormItem)
-                          setFormData({ question: "",
-                                        hint: "",
-                                        answer1: "",
-                                        answer2: "",
-                                        answer3: "",
-                                        answer4: "",})
+    .then((newFormItem)=>{
+      onAddEntry(newFormItem)
+      setFormData({ question: "",
+                    hint: "",
+                    answer1: "",
+                    answer2: "",
+                    answer3: "",
+                    answer4: "",})
     })
   }
    

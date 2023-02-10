@@ -1,34 +1,31 @@
 import React , {useState}  from "react";
-import TriviaQuestion from "./TriviaQuestion"
+import TriviaQuestion from "./TriviaQuestion";
 
 
-function TriviaList({triviaData, setTriviaData}) {
+function TriviaList({triviaData, onDelete}) {
   const [points , setPoints] = useState(0);
-   const [currentQ, setCurrentQ] = useState(1);
+  const [currentQ, setCurrentQ] = useState(1);
 
-  
-  function deleteQuestion(deletedQuestion){
-     const filteredQuestionList = triviaData.filter(trivia => trivia.id !== deletedQuestion.id)
-     return setTriviaData(filteredQuestionList) 
-    }
     
     function pointAnswers(correctIndex, e){
       if (correctIndex === parseInt(e.target.id)){
-      setPoints(points => points + 10)
-      setCurrentQ(currentQ +1) 
-     }else{
+        setPoints(points => points + 10)
+        setCurrentQ(currentQ +1) 
+      }else{
         setCurrentQ(currentQ +1)
        }
     }
 
     const perQuestion = triviaData.map((trivia) => {
       return  (currentQ === trivia.id) ? 
-     <div key={trivia.id} ><TriviaQuestion 
+     <div key={trivia.id} > 
+      <TriviaQuestion 
           trivia={trivia} 
-          onDelete={deleteQuestion} 
+          onDelete={onDelete} 
           onhandleAnswers={pointAnswers}
           points={points}
-          setPoints={setPoints}/>
+          setPoints={setPoints}
+      />
      </div> 
      :  null
      })
