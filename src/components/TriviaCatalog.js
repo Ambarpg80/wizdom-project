@@ -2,7 +2,7 @@ import React , {useState}  from "react";
 import TriviaQuestion from "./TriviaQuestion";
 
 
-function TriviaList({triviaData, onDelete}) {
+function TriviaCatalog({triviaQuestions, onDelete}) {
   const [points , setPoints] = useState(0);
   const [currentQ, setCurrentQ] = useState(1);
 
@@ -16,27 +16,22 @@ function TriviaList({triviaData, onDelete}) {
        }
     }
 
-    const perQuestion = triviaData.map((trivia) => {
-      return  (currentQ === trivia.id) ? 
-     <div key={trivia.id} > 
-      <TriviaQuestion 
-          trivia={trivia} 
-          onDelete={onDelete} 
-          onhandleAnswers={pointAnswers}
-          points={points}
-          setPoints={setPoints}
-      />
-     </div> 
-     :  null
-     })
+    const currentQuestion = triviaQuestions.find((trivia) =>  (currentQ === trivia.id))
 
     return (
       <div className="quiz-page">
         <div className="container">
-        { perQuestion }  
+        { currentQuestion ? <TriviaQuestion 
+            trivia={currentQuestion} 
+            onDelete={onDelete} 
+            onhandleAnswers={pointAnswers}
+            points={points}
+            setPoints={setPoints}
+        />
+        :  null }  
           <h1> {points } points have been awarded to your House for your knowledge of Hogwarts History!</h1>
         </div>
       </div>   
     )
 }
-export default TriviaList
+export default TriviaCatalog

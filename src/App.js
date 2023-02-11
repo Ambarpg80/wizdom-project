@@ -3,26 +3,26 @@ import './App.css';
 import NavBar from "./components/NavBar";
 import Homepage from "./components/Homepage.js";
 import TriviaForm from "./components/TriviaForm"
-import TriviaList from "./components/TriviaList"
+import TriviaCatalog from "./components/TriviaCatalog"
 import { Switch, Route} from "react-router-dom";
 
 
 function App() {
-  const [triviaData, setTriviaData] = useState([])
+  const [triviaQuestions, setTriviaQuestions] = useState([])
   
   useEffect(()=>{
         fetch('http://localhost:3000/trivia')
         .then(res => res.json())
-        .then(data => setTriviaData(data))
+        .then(data => setTriviaQuestions(data))
     },[])
     
-  function handlenewEntry(newQuestion){
-      setTriviaData([...triviaData, newQuestion])
+  function handleNewEntry(newQuestion){
+      setTriviaQuestions([...triviaQuestions, newQuestion])
   }
 
   function deleteQuestion(deletedQuestion){
-    const filteredQuestionList = triviaData.filter(trivia => trivia.id !== deletedQuestion.id)
-      return setTriviaData(filteredQuestionList) 
+    const filteredQuestionList = triviaQuestions.filter(trivia => trivia.id !== deletedQuestion.id)
+      return setTriviaQuestions(filteredQuestionList) 
    }
 
 
@@ -34,12 +34,11 @@ function App() {
       <Switch> 
           
         <Route path="/quiz"> 
-          <TriviaList triviaData={triviaData} 
-                      setTriviaData={setTriviaData}
+          <TriviaCatalog triviaQuestions={triviaQuestions} 
                       onDelete={deleteQuestion} />
         </Route>
         <Route path="/form"> 
-          <TriviaForm  onAddEntry={handlenewEntry}/>
+          <TriviaForm  onAddEntry={handleNewEntry}/>
         </Route>
         <Route exact path="/">
           <Homepage />
