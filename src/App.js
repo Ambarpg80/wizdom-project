@@ -11,7 +11,7 @@ function App() {
   const [triviaQuestions, setTriviaQuestions] = useState([])
   
   useEffect(()=>{
-        fetch('http://localhost:3000/trivia')
+        fetch('http://localhost:3001/trivia')
         .then(res => res.json())
         .then(data => setTriviaQuestions(data))
     },[])
