@@ -28,7 +28,7 @@ function TriviaForm({onAddEntry}) {
                                     formData.answer4,],
                           correctIndex: parseInt(formData.correctIndex),
                         };
-    fetch("http://localhost:3000/trivia",{
+    fetch("http://localhost:3001/trivia",{
         method: "POST",
         headers:{
             "Content-Type" : "application/json"
